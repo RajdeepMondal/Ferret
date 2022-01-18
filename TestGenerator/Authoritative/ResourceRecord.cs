@@ -14,42 +14,42 @@
         /// <summary>
         /// Start of authority data.
         /// </summary>
-        SOA,
+        SOA, // -> 0
 
         /// <summary>
         /// Nameserver referral.
         /// </summary>
-        NS,
+        NS, // -> 1
 
         /// <summary>
         /// Ipv4 address.
         /// </summary>
-        A,
+        A, // -> 2
 
         /// <summary>
         /// Record alias.
         /// </summary>
-        CNAME,
+        CNAME, // -> 3
 
         /// <summary>
         /// Domain redirection.
         /// </summary>
-        DNAME,
+        DNAME, // -> 4
 
         /// <summary>
         /// IPv6 address.
         /// </summary>
-        AAAA,
+        AAAA, // -> 5
 
         /// <summary>
         /// Text data.
         /// </summary>
-        TXT,
+        TXT, // -> 6
 
         /// <summary>
         /// Empty data.
         /// </summary>
-        N,
+        N, // -> 7
     }
 
     /// <summary>
@@ -57,6 +57,8 @@
     /// </summary>
     public sealed class ResourceRecord
     {
+        // Rajdeep Comments: This class cannot be any inherited any further
+        
         /// <summary>
         /// The record name.
         /// </summary>
