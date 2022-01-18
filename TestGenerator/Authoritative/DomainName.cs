@@ -11,12 +11,20 @@
     /// </summary>
     public struct DomainName : IEquatable<DomainName>
     {
+        // Rajdeep Comments: IEquatable<DomainName> is an Interface
+        //                   For details, check this https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/types/interfaces
+        
+        
         /// <summary>
         /// The value for the domain represented as a list.
         /// For example, bar.foo.com is represented as [com, foo, bar].
         /// '*' is represented using (byte)1.
         /// </summary>
         public IList<byte> Value { get; set; }
+        
+        // Rajdeep Comments: Above function creates an Ilist<byte> with the name "value", which
+        //                   is the domain name in reverse order. I understand it is a list of
+        //                   of integers. (Is there some mapping from integers to names?)
 
         /// <summary>
         /// Create a Zen domain name from a value.
@@ -27,12 +35,17 @@
         {
             return Language.Create<DomainName>(("Value", value));
         }
+        
+        // Rajdeep comments: Okay, so I pass an IList<byte> value to the above function
+        //                   which calls Value to create a new object of type DomainName.
 
         /// <summary>
         /// Convert the domain name to a string format.
         /// </summary>
         /// <returns>The string.</returns>
         [ExcludeFromCodeCoverage]
+        //Rajdeep Comments: Not exactly sure, but I understand that it has something to do 
+        //                  with excluding the following code during unit tests?
         public override string ToString()
         {
             return string.Join(".", Value);
@@ -47,6 +60,9 @@
         {
             return Value.SequenceEqual(other.Value);
         }
+        
+        //Doubts: Both ExcludeFromCodeCoverage and IEquatable have am Equals method.
+        //        Which one is being defined above? Or am I missing something?
     }
 
     /// <summary>
